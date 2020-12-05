@@ -14,14 +14,14 @@ class CreateAuthorsTable extends Migration
     public function up()
     {
         Schema::create('authors', function (Blueprint $table) {
-            $table->id('authors_id')->primary()->increments();
+            $table->id('authors_id')->autoIncrement();
             $table->timestamps();
-            $table->string(`author_name`);
-            $table->string(`email`);
-            $table->string( `password` );
-            $table->string( `location`);
-            $table->foreignId(`news_id`);
-            $table->foreignId(`editor_id`);
+            $table->string('author_name');
+            $table->string('email');
+            $table->string( 'password');
+            $table->string( 'location');
+            //$table->foreignId('news_id')->references('news_id')->on('news')->onDelete('cascade');
+            //$table->foreignId('editors_id')->references('editors_id')->on('editor')->onDelete('cascade');
         });
     }
 

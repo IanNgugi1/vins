@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -28,6 +29,9 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    protected $primaryKey = 'users_id';
+  
 
     /**
      * The attributes that should be hidden for arrays.

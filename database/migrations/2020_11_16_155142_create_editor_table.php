@@ -14,14 +14,13 @@ class CreateEditorTable extends Migration
     public function up()
     {
         Schema::create('editor', function (Blueprint $table) {
-            $table->id('editor_id')->primary()->increments();
+            $table->id('editors_id')->autoIncrement();
             $table->timestamps();
-            $table->string(`editor_name`);
-            $table->string(`email`);
-            $table->string(`password`);
-            $table->foreignId(`author_id`);
-            $table->foreignId(`news_id`);
-            $table->foreignId(`comments_id`);
+            $table->string('editor_name');
+            $table->string('email');
+            $table->string('password');
+            $table->foreignId('author_id')->references('authors_id')->on('authors')->onDelete('cascade');
+            //$table->foreignId('')->references('news_id')->on('news')->onDelete('cascade');
         });
     }
 
